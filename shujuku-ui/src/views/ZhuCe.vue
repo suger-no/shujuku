@@ -11,10 +11,10 @@
             <el-input type="password" v-model="customer.cuPassword"></el-input>
           </el-form-item>
           <el-form-item label="电话号码" prop="cuTel">
-            <el-input type="password" v-model="customer.cuTel"></el-input>
+            <el-input type="text" v-model="customer.cuTel"></el-input>
           </el-form-item>
           <el-form-item label="地址" prop="cuAddresss">
-            <el-input type="password" v-model="customer.cuAddresss"></el-input>
+            <el-input type="text" v-model="customer.cuAddresss"></el-input>
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="zc()">注册</el-button>
