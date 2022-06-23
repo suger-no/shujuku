@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.shujuku.common.Result;
 import com.example.shujuku.entity.Customer;
 import com.example.shujuku.entity.Employee;
+import com.example.shujuku.mapper.CustomerMapper;
 import com.example.shujuku.service.CustomerService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -27,13 +28,18 @@ import javax.servlet.http.HttpServletResponse;
 public class CustomerController {
     @Autowired
     CustomerService customerService;
+    @Autowired
+    CustomerMapper customerMapper;
     @PostMapping("/zhuce")
     public Result zhuce(@RequestBody Customer customer){
         if(customerService.getOne(new QueryWrapper<Customer>().eq("cu_tel",customer.getCuTel()))!=null){
             return Result.fail("该电话号码已被使用");
         }
-        customerService.getBaseMapper().insert(customer);
-        return Result.success("cuccess");
+        int i = customerMapper.insertCustomer(customer);
+        if(i==1)
+            return Result.success("success");
+        else
+            return Result.fail("fail");
     }
     @PostMapping("/login")
     public Result login(@RequestBody Customer customer){

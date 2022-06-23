@@ -2,4 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.shujuku.mapper.CustomerMapper">
 
+    <insert id="insertCustomer" parameterType="com.example.shujuku.entity.Customer">
+        INSERT INTO `shujukukeshe`.`customer` (`cu_name`, `cu_addresss`, `cu_tel`, `cu_password`) VALUES ( #{cuName}, #{cuAddresss}, #{cuTel}, #{cuPassword});
+    </insert>
 </mapper>
