@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    password: shujukukeshe
+    url: jdbc:mysql://43.138.71.214:3306/shujukukeshe
+    username: shujukukeshe
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 43.138.71.214
+    port: 6379
+    password: nosugar
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
