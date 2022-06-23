@@ -35,6 +35,9 @@ public class CustomerController {
         if(customerService.getOne(new QueryWrapper<Customer>().eq("cu_tel",customer.getCuTel()))!=null){
             return Result.fail("该电话号码已被使用");
         }
+        if(customer.getCuTel().length()!=11){
+            return Result.fail("电话号码不符合要求");
+        }
         int i = customerMapper.insertCustomer(customer);
         if(i==1)
             return Result.success("success");
